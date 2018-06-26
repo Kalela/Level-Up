@@ -8,7 +8,7 @@ Level-Up is an android app that leverages on the github api to show nairobi devs
 2. Shows a single developers details on click.
 
 ## Frameworks and Tech used
-- Java for adnroid.
+- Java for android.
 - Android Studio.
 - Android API 28.
 
