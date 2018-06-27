@@ -53,7 +53,7 @@ public class DevAdapter extends RecyclerView.Adapter<DevAdapter.ViewHolder> {
         viewHolder.mTextView.setText(mList.get(i));
         bitmap = getBitmapFromURL(mIconList.get(i)+".png");
         Drawable image = new BitmapDrawable(bitmap);
-//        viewHolder.mImageView.setImageDrawable(image);
+        viewHolder.mImageView.setImageDrawable(image);
 
     }
 
