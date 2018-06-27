@@ -4,18 +4,19 @@
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <TextView
-        android:text="Dev Username"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_margin="12dp"
-        android:padding="12dp"
+        android:id="@+id/devNameTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:padding="12dp"
+        android:text="Dev Username"
+        android:textSize="18sp"
+        android:textStyle="bold"
         tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="16dp"
-        android:id="@+id/devNameTextView">
-    </TextView>
+        tools:layout_editor_absoluteY="16dp"></TextView>
 
     <ImageView
         android:id="@+id/devImageImageView"
@@ -25,6 +26,16 @@
         android:layout_centerVertical="true"
         android:layout_marginEnd="23dp"
         android:src="@drawable/profile" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="78dp"
+        android:background="#A9A9A9"
+        android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
 
 </RelativeLayout>
 
