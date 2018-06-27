@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.my_recycler_view);
         mLayoutManager = new LinearLayoutManager(getApplicationContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new DevAdapter(list, imageList);
+        mAdapter = new DevAdapter(this, list, imageList);
         mRecyclerView.setAdapter(mAdapter);
     }
 
