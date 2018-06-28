@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import java.util.ArrayList;
 
@@ -33,5 +34,9 @@ public class MainActivity extends AppCompatActivity {
 
         list.add("meshnesh");
         imageList.add("https://avatars3.githubusercontent.com/u/15923109?s=400&v=4");
+    }
+
+    public void showDetails(View view) {
+
     }
 }

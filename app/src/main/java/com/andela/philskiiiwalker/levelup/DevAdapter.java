@@ -1,6 +1,8 @@
 package com.andela.philskiiiwalker.levelup;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -8,11 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+
+import static android.support.constraint.Constraints.TAG;
 
 public class DevAdapter extends RecyclerView.Adapter<DevAdapter.ViewHolder> {
 
@@ -38,13 +44,25 @@ public class DevAdapter extends RecyclerView.Adapter<DevAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
         viewHolder.devName = mList.get(i);
         viewHolder.mTextView.setText(mList.get(i));
         Glide.with(mcontext)
                 .asBitmap()
                 .load(mImageList.get(i))
                 .into(viewHolder.mImageView);
+
+        viewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mcontext, mList.get(i), Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(mcontext, DisplayDetailsActivity.class);
+                intent.putExtra("image_url", mImageList.get(i));
+                intent.putExtra("dev_name", mList.get(i));
+                mcontext.startActivity(intent);
+            }
+        });
 
     }
 
@@ -58,12 +76,14 @@ public class DevAdapter extends RecyclerView.Adapter<DevAdapter.ViewHolder> {
         public View mView;
         public TextView mTextView;
         public ImageView mImageView;
+        public RelativeLayout parentLayout;
 
         public ViewHolder(@NonNull View view) {
             super(view);
             mView = view;
             mTextView = view.findViewById(R.id.devNameTextView);
             mImageView = view.findViewById(R.id.devImageImageView);
+            parentLayout = itemView.findViewById(R.id.parent_layout);
         }
     }
 }
