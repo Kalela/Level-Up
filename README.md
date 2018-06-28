@@ -1,6 +1,7 @@
 # Level-Up
 Level-Up is an android app that leverages on the github api to show nairobi devs data.
 
+[![CircleCI](https://circleci.com/gh/Kalela/Level-Up.svg?style=svg)](https://circleci.com/gh/Kalela/Level-Up)
 [![Maintainability](https://api.codeclimate.com/v1/badges/1a1887db6037dfc6d00d/maintainability)](https://codeclimate.com/github/Kalela/Level-Up/maintainability)
 
 ## Features
