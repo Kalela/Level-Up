@@ -35,8 +35,5 @@ public class MainActivity extends AppCompatActivity {
         list.add("meshnesh");
         imageList.add("https://avatars3.githubusercontent.com/u/15923109?s=400&v=4");
     }
-
-    public void showDetails(View view) {
-
-    }
+    
 }
