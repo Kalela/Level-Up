@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".view.MainActivity">
 
-    <include layout="@layout/main_list_activity" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/main_list_activity" />
 
 </android.support.constraint.ConstraintLayout>

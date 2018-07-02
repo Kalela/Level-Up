@@ -15,15 +15,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/developerNameTextView"
         android:layout_width="344dp"
-        android:layout_height="45dp"
+        android:layout_height="25dp"
         android:layout_marginBottom="9dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:ems="10"
         android:text="Username"
+        android:textColor="#000"
+        android:textSize="16dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/developerBio"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/developerImageImageView" />
