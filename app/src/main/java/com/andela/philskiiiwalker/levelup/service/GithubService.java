@@ -1,4 +1,4 @@
-package com.andela.philskiiiwalker.levelup;
+package com.andela.philskiiiwalker.levelup.service;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

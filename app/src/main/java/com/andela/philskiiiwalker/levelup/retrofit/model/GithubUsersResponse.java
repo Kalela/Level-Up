@@ -1,4 +1,4 @@
-package com.andela.philskiiiwalker.levelup;
+package com.andela.philskiiiwalker.levelup.retrofit.model;
 
 import com.google.gson.annotations.SerializedName;
 
