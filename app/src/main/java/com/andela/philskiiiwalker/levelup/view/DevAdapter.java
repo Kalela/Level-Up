@@ -1,11 +1,9 @@
-package com.andela.philskiiiwalker.levelup;
+package com.andela.philskiiiwalker.levelup.view;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +12,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.andela.philskiiiwalker.levelup.R;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
-
-import static android.support.constraint.Constraints.TAG;
 
 public class DevAdapter extends RecyclerView.Adapter<DevAdapter.ViewHolder> {
 

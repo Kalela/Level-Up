@@ -1,11 +1,11 @@
-package com.andela.philskiiiwalker.levelup.retrofit.model;
+package com.andela.philskiiiwalker.levelup.model;
 
 import com.google.gson.annotations.SerializedName;
 
 /**
  * This class represents the github view interface.
  */
-public class GithubUsers {
+public class GithubUser {
 
     @SerializedName("username")
     private String username;

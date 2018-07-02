@@ -1,15 +1,11 @@
-package com.andela.philskiiiwalker.levelup.retrofit.model;
+package com.andela.philskiiiwalker.levelup.model;
 
-import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class GithubUsersResponse {
+public class RestResponse {
 
-    @SerializedName("imageurl")
     private List<String> imageurls;
-
-    @SerializedName("result")
     private List<GithubUser> result;
 
     public List<GithubUser> getResult() {
