@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Level Up</string>
+    <string name="title_activity_display_details">DisplayDetailsActivity</string>
 </resources>
