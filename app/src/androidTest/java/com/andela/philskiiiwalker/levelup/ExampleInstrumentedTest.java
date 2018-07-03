@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.andela.philskiiiwalker.levelup", appContext.getPackageName());
+        assertEquals("com.andela.philskiiiwalker.levep", appContext.getPackageName());
     }
 }
