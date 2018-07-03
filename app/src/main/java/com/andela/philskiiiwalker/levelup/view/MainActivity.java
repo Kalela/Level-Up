@@ -1,10 +1,12 @@
-package com.andela.philskiiiwalker.levelup;
+package com.andela.philskiiiwalker.levelup.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
+
+import com.andela.philskiiiwalker.levelup.R;
+import com.andela.philskiiiwalker.levelup.view.DevAdapter;
 
 import java.util.ArrayList;
 
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mAdapter = new DevAdapter(this, list, imageList);
         mRecyclerView.setAdapter(mAdapter);
+
     }
 
     public void initDummyData() {
@@ -35,5 +38,4 @@ public class MainActivity extends AppCompatActivity {
         list.add("meshnesh");
         imageList.add("https://avatars3.githubusercontent.com/u/15923109?s=400&v=4");
     }
-    
 }
