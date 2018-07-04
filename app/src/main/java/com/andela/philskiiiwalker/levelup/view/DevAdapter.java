@@ -41,7 +41,7 @@ public class DevAdapter extends RecyclerView.Adapter<DevAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
+    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int i) {
         viewHolder.devName = mList.get(i);
         viewHolder.mTextView.setText(mList.get(i));
         Glide.with(mcontext)
@@ -52,11 +52,11 @@ public class DevAdapter extends RecyclerView.Adapter<DevAdapter.ViewHolder> {
         viewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mcontext, mList.get(i), Toast.LENGTH_SHORT).show();
+                Toast.makeText(mcontext, mList.get(viewHolder.getAdapterPosition()), Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(mcontext, DisplayDetailsActivity.class);
-                intent.putExtra("image_url", mImageList.get(i));
-                intent.putExtra("dev_name", mList.get(i));
+                intent.putExtra("image_url", mImageList.get(viewHolder.getAdapterPosition()));
+                intent.putExtra("dev_name", mList.get(viewHolder.getAdapterPosition()));
                 mcontext.startActivity(intent);
             }
         });

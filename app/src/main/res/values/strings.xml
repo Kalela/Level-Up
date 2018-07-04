@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Level Up</string>
+    <string name="username">Username</string>
+    <string name="dev_bio">This is the developer bio.</string>
+    <string name="dev_heading">Nairobi Java Developers</string>
     <string name="title_activity_display_details">DisplayDetailsActivity</string>
+    <string name="app_image">app image</string>
 </resources>

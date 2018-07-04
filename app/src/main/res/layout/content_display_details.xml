@@ -7,6 +7,7 @@
 
     <ImageView
         android:id="@+id/developerImageImageView"
+        android:contentDescription="@string/app_image"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginBottom="6dp"
@@ -23,9 +24,9 @@
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:ems="10"
-        android:text="Username"
+        android:text="@string/username"
         android:textColor="#000"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/developerBio"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +39,7 @@
         android:layout_marginBottom="86dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:text="This is the developer bio. "
+        android:text="@string/dev_bio"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/developerNameTextView" />

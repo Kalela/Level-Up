@@ -7,12 +7,14 @@
 
     <TextView
         android:id="@+id/devNameTextView"
+        android:contentDescription="@string/app_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:padding="12dp"
-        android:text="Dev Username"
+        android:text="@string/username"
         android:textSize="18sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="41dp"
@@ -23,14 +25,17 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginEnd="23dp"
+        android:layout_marginRight="23dp"
         android:src="@drawable/profile" />
 
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
