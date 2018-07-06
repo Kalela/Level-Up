@@ -1,4 +1,4 @@
-package com.andela.philskiiiwalker.levelup.view;
+package com.andela.philskiiiwalker.levelup.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,25 +10,27 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.andela.philskiiiwalker.levelup.R;
+import com.andela.philskiiiwalker.levelup.model.GithubUsers;
+import com.andela.philskiiiwalker.levelup.view.DisplayDetailsActivity;
 import com.bumptech.glide.Glide;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class DevAdapter extends RecyclerView.Adapter<DevAdapter.ViewHolder> {
+public class GithubUsersAdapter extends RecyclerView.Adapter<GithubUsersAdapter.ViewHolder> {
 
-    private ArrayList<String> mList;
-    private ArrayList<String> mImageList;
     private Context mcontext;
+    private List<GithubUsers> users;
 
-
-    public DevAdapter(Context mcontext, ArrayList<String> list, ArrayList<String> imageList) {
-        this.mList = list;
-        this.mImageList = imageList;
+    public GithubUsersAdapter(Context mcontext, List<GithubUsers> users) {
         this.mcontext = mcontext;
+        this.users = users;
+    }
 
+    @Override
+    public long getItemId(int position) {
+        return super.getItemId(position);
     }
 
     @NonNull
@@ -41,22 +43,21 @@ public class DevAdapter extends RecyclerView.Adapter<DevAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int i) {
-        viewHolder.devName = mList.get(i);
-        viewHolder.mTextView.setText(mList.get(i));
+    public void onBindViewHolder(@NonNull final GithubUsersAdapter.ViewHolder viewHolder, final int i) {
+        final GithubUsers githubUser = users.get(i);
+        viewHolder.mTextView.setText(githubUser.getUsername());
         Glide.with(mcontext)
                 .asBitmap()
-                .load(mImageList.get(i))
+                .load(githubUser.getProfileImage())
                 .into(viewHolder.mImageView);
 
         viewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mcontext, mList.get(viewHolder.getAdapterPosition()), Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(mcontext, DisplayDetailsActivity.class);
-                intent.putExtra("image_url", mImageList.get(viewHolder.getAdapterPosition()));
-                intent.putExtra("dev_name", mList.get(viewHolder.getAdapterPosition()));
+                intent.putExtra("image_url", githubUser.getProfileImage());
+                intent.putExtra("dev_name", githubUser.getUsername());
                 mcontext.startActivity(intent);
             }
         });
@@ -65,11 +66,10 @@ public class DevAdapter extends RecyclerView.Adapter<DevAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return mList.size();
+        return users.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        public String devName;
         public View mView;
         public TextView mTextView;
         public ImageView mImageView;
