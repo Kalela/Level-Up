@@ -7,29 +7,31 @@
 
     <TextView
         android:id="@+id/devNameTextView"
-        android:contentDescription="@string/app_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="104dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="12dp"
+        android:contentDescription="@string/app_image"
         android:padding="12dp"
         android:text="@string/username"
         android:textSize="18sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="16dp"></TextView>
+        tools:layout_editor_absoluteY="16dp"
+        android:layout_alignParentLeft="true"></TextView>
 
     <ImageView
         android:id="@+id/devImageImageView"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="98dp"
+        android:layout_height="87dp"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="19dp"
+        android:src="@drawable/profile"
         android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="23dp"
-        android:layout_marginRight="23dp"
-        android:src="@drawable/profile" />
+        android:layout_marginRight="20dp" />
 
     <View
         android:layout_width="fill_parent"
@@ -39,7 +41,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginTop="78dp"
+        android:layout_marginTop="115dp"
         android:background="#A9A9A9" />
 
 </RelativeLayout>
