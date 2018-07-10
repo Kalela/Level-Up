@@ -16,14 +16,16 @@ import com.andela.philskiiiwalker.levelup.model.GithubUsers;
 import com.andela.philskiiiwalker.levelup.view.DisplayDetailsActivity;
 import com.bumptech.glide.Glide;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GithubUsersAdapter extends RecyclerView.Adapter<GithubUsersAdapter.ViewHolder> {
 
     private Context mcontext;
-    private List<GithubUsers> users;
+    private ArrayList<GithubUsers> users;
 
-    public GithubUsersAdapter(Context mcontext, List<GithubUsers> users) {
+    public GithubUsersAdapter(Context mcontext, ArrayList<GithubUsers> users) {
         this.mcontext = mcontext;
         this.users = users;
     }
