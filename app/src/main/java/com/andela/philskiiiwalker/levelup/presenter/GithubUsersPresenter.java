@@ -1,9 +1,15 @@
 package com.andela.philskiiiwalker.levelup.presenter;
 
-import com.andela.philskiiiwalker.levelup.model.GithubUser;
-import com.andela.philskiiiwalker.levelup.view.GithubUsersView;
+import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+
+import com.andela.philskiiiwalker.levelup.model.GithubUsers;
+import com.andela.philskiiiwalker.levelup.model.GithubUsersResponse;
+import com.andela.philskiiiwalker.levelup.adapter.GithubUsersAdapter;
+
 import com.andela.philskiiiwalker.levelup.service.GithubService;
-import com.andela.philskiiiwalker.levelup.model.Data;
 
 import java.util.List;
 
@@ -12,34 +18,27 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class GithubUsersPresenter {
-    private GithubUsersView githubUsersView;
-    private GithubService githubService;
+    private Context context;
 
-    public GithubUsersPresenter(GithubUsersView view) {
-        this.githubUsersView = view;
-
-        if (this.githubService == null) {
-            this.githubService = new GithubService();
-        }
+    public GithubUsersPresenter(Context context) {
+        this.context = context;
     }
 
-    public void getGithubUsers() {
-        githubService
-                .getAPI()
-                .getResults()
-                .enqueue(new Callback<Data>() {
-                    @Override
-                    public void onResponse(Call<Data> call, Response<Data> response) {
-                        Data data = response.body();
+    public void getGithubUsers(final RecyclerView recyclerView) {
+        Log.d("presenter","getting users");
+        GithubService.getAPI().getResults().enqueue(new Callback<GithubUsersResponse>() {
 
-                        if (data != null && data.getRestResponse() != null) {
-                            List<GithubUser> result = data.getRestResponse().getResult();
-                            githubUsersView.gitHubUsersReady(result);
+                    @Override
+                    public void onResponse(Call<GithubUsersResponse> call, @NonNull Response<GithubUsersResponse> response) {
+                        List<GithubUsers> users = response.body().getUsers();
+                        if (users != null) {
+                            recyclerView.setAdapter(new GithubUsersAdapter(context, users));
                         }
+
                     }
 
                     @Override
-                    public void onFailure(Call<Data> call, Throwable t) {
+                    public void onFailure(Call<GithubUsersResponse> call, Throwable t) {
                         try {
                             throw new InterruptedException("Something went wrong!");
                         } catch (InterruptedException e) {
@@ -48,4 +47,5 @@ public class GithubUsersPresenter {
                     }
                 });
     }
+
 }
