@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements GithubUsersPresen
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
-        savedInstanceState.putParcelableArrayList(ALL_KEYS,(ArrayList<? extends Parcelable>) users);
+        savedInstanceState.putParcelableArrayList(ALL_KEYS, users);
     }
 
     @Override
