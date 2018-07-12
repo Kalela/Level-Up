@@ -2,6 +2,8 @@ package com.andela.philskiiiwalker.levelup.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,9 +12,9 @@ import java.util.List;
 public class GithubUsersResponse {
 
     @SerializedName("items")
-    public List<GithubUsers> users;
+    public ArrayList<GithubUsers> users;
 
-    public List<GithubUsers> getUsers() {
+    public ArrayList<GithubUsers> getUsers() {
         return users;
     }
 }
