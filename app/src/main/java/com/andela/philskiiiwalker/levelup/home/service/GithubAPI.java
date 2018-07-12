@@ -1,6 +1,6 @@
-package com.andela.philskiiiwalker.levelup.service;
+package com.andela.philskiiiwalker.levelup.home.service;
 
-import com.andela.philskiiiwalker.levelup.model.GithubUsersResponse;
+import com.andela.philskiiiwalker.levelup.home.model.GithubUsersResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

@@ -1,4 +1,4 @@
-package com.andela.philskiiiwalker.levelup.view;
+package com.andela.philskiiiwalker.levelup.github_user_profile.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
