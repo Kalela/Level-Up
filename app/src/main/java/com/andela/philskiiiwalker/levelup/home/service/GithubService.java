@@ -1,4 +1,4 @@
-package com.andela.philskiiiwalker.levelup.service;
+package com.andela.philskiiiwalker.levelup.home.service;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

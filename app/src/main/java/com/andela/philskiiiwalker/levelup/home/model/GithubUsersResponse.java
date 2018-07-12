@@ -1,10 +1,8 @@
-package com.andela.philskiiiwalker.levelup.model;
+package com.andela.philskiiiwalker.levelup.home.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * This class represents the github view interface.

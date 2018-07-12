@@ -1,12 +1,12 @@
-package com.andela.philskiiiwalker.levelup.presenter;
+package com.andela.philskiiiwalker.levelup.home.presenter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.andela.philskiiiwalker.levelup.contract.MainActivityContract;
-import com.andela.philskiiiwalker.levelup.model.GithubUsers;
-import com.andela.philskiiiwalker.levelup.model.GithubUsersResponse;
-import com.andela.philskiiiwalker.levelup.service.GithubService;
+import com.andela.philskiiiwalker.levelup.home.contract.MainActivityContract;
+import com.andela.philskiiiwalker.levelup.home.model.GithubUsers;
+import com.andela.philskiiiwalker.levelup.home.model.GithubUsersResponse;
+import com.andela.philskiiiwalker.levelup.home.service.GithubService;
 
 import java.util.ArrayList;
 

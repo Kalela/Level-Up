@@ -1,6 +1,6 @@
-package com.andela.philskiiiwalker.levelup.contract;
+package com.andela.philskiiiwalker.levelup.home.contract;
 
-import com.andela.philskiiiwalker.levelup.model.GithubUsers;
+import com.andela.philskiiiwalker.levelup.home.model.GithubUsers;
 
 import java.util.ArrayList;
 

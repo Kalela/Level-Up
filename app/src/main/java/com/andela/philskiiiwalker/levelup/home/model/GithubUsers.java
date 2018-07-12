@@ -1,4 +1,4 @@
-package com.andela.philskiiiwalker.levelup.model;
+package com.andela.philskiiiwalker.levelup.home.model;
 
 
 import android.os.Parcel;

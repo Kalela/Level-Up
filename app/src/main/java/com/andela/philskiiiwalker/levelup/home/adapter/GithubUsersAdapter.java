@@ -1,4 +1,4 @@
-package com.andela.philskiiiwalker.levelup.adapter;
+package com.andela.philskiiiwalker.levelup.home.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,13 +12,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.andela.philskiiiwalker.levelup.R;
-import com.andela.philskiiiwalker.levelup.model.GithubUsers;
-import com.andela.philskiiiwalker.levelup.view.DisplayDetailsActivity;
+import com.andela.philskiiiwalker.levelup.home.model.GithubUsers;
+import com.andela.philskiiiwalker.levelup.github_user_profile.view.DisplayDetailsActivity;
 import com.bumptech.glide.Glide;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 public class GithubUsersAdapter extends RecyclerView.Adapter<GithubUsersAdapter.ViewHolder> {
 
