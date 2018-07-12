@@ -18,11 +18,14 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
     static final  String ALL_KEYS = "list_state";
     ArrayList<GithubUsers> users;
     MainActivityContract.MainPresenter presenter = new GithubUsersPresenter(this);
+    RecyclerView mRecyclerView;
+    RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mRecyclerView = findViewById(R.id.my_recycler_view);
 
         if (savedInstanceState != null) {
             users = savedInstanceState.getParcelableArrayList(ALL_KEYS);
@@ -39,11 +42,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
     }
 
     public void displayGithubUsers(ArrayList<GithubUsers> userList) {
-        RecyclerView mRecyclerView;
-        RecyclerView.LayoutManager mLayoutManager;
-
         users = userList;
-        mRecyclerView = findViewById(R.id.my_recycler_view);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         RecyclerView.Adapter adapter = new GithubUsersAdapter(this, users);
