@@ -5,4 +5,5 @@
     <string name="dev_heading">Nairobi Java Developers</string>
     <string name="title_activity_display_details">DisplayDetailsActivity</string>
     <string name="app_image">app image</string>
+    <string name="share">Share Profile</string>
 </resources>

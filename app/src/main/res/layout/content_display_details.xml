@@ -44,4 +44,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/developerNameTextView" />
 
+    <Button
+        android:id="@+id/shareButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/share"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:drawableRight="@drawable/share_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/developerBio"
+        tools:ignore="MissingConstraints"
+        />
+
 </android.support.constraint.ConstraintLayout>
