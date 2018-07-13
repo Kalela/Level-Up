@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.MainActivity">
+        <activity android:name=".home.view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,10 +19,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.DisplayDetailsActivity"
+            android:name=".github_user_profile.view.DisplayDetailsActivity"
             android:label="@string/title_activity_display_details"
             android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".view.MainActivity"></activity>
+            android:parentActivityName=".home.view.MainActivity"></activity>
     </application>
 
 </manifest>

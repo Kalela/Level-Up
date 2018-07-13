@@ -1,6 +1,4 @@
-package com.andela.philskiiiwalker.levelup.service;
-
-import android.util.Log;
+package com.andela.philskiiiwalker.levelup.home.service;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

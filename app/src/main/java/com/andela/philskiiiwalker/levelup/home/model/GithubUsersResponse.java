@@ -1,8 +1,8 @@
-package com.andela.philskiiiwalker.levelup.model;
+package com.andela.philskiiiwalker.levelup.home.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * This class represents the github view interface.
@@ -10,9 +10,9 @@ import java.util.List;
 public class GithubUsersResponse {
 
     @SerializedName("items")
-    public List<GithubUsers> users;
+    public ArrayList<GithubUsers> users;
 
-    public List<GithubUsers> getUsers() {
+    public ArrayList<GithubUsers> getUsers() {
         return users;
     }
 }
