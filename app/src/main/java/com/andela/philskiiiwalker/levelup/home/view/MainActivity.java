@@ -2,6 +2,7 @@ package com.andela.philskiiiwalker.levelup.home.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
 
     public void displayGithubUsers(ArrayList<GithubUsers> userList) {
         users = userList;
-        mLayoutManager = new LinearLayoutManager(this);
+        mLayoutManager = new GridLayoutManager(this, 2);
         mRecyclerView.setLayoutManager(mLayoutManager);
         RecyclerView.Adapter adapter = new GithubUsersAdapter(this, users);
         mRecyclerView.setAdapter(adapter);
