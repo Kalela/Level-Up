@@ -3,7 +3,6 @@ package com.andela.philskiiiwalker.levelup.home.view;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.andela.philskiiiwalker.levelup.R;
@@ -11,6 +10,7 @@ import com.andela.philskiiiwalker.levelup.home.adapter.GithubUsersAdapter;
 import com.andela.philskiiiwalker.levelup.home.contract.MainActivityContract;
 import com.andela.philskiiiwalker.levelup.home.model.GithubUsers;
 import com.andela.philskiiiwalker.levelup.home.presenter.GithubUsersPresenter;
+import com.xiaofeng.flowlayoutmanager.FlowLayoutManager;
 
 import java.util.ArrayList;
 
