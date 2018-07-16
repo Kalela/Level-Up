@@ -3,6 +3,7 @@ package com.andela.philskiiiwalker.levelup.github_user_profile.view;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -26,16 +27,17 @@ public class DisplayDetailsActivity extends AppCompatActivity {
 
     private void getIncomingIntent() {
         if(getIntent().hasExtra("image_url") && getIntent().hasExtra("dev_name")) {
-            String imageUrl = getIntent().getStringExtra("image_url");
-            String devName = getIntent().getStringExtra("dev_name");
-            setActivityResources(imageUrl, devName);
+            setActivityResources();
         }
     }
 
-    private void setActivityResources(String imageUrl, String devName) {
+    private void setActivityResources() {
+        String devName = getIntent().getStringExtra("dev_name");
+        String profileUrl = getIntent().getStringExtra("html_url");
+        String imageUrl = getIntent().getStringExtra("image_url");
+
         TextView developerName = findViewById(R.id.developerNameTextView);
         ImageView devImage = findViewById(R.id.developerImageImageView);
-        shareButton = findViewById(R.id.shareButton);
 
         developerName.setText(devName);
         Glide.with(this)
@@ -43,23 +45,28 @@ public class DisplayDetailsActivity extends AppCompatActivity {
                 .load(imageUrl)
                 .into(devImage);
 
-        shareUserProfile(imageUrl, devName);
+        shareUserProfile(profileUrl, devName);
     }
 
-    private void shareUserProfile(final String imageUrl, final String devName) {
 
+    private Intent profileShareIntent(String profileUrl, String devName) {
+        StringBuilder message = new StringBuilder();
+        message.append(getString(R.string.share_message))
+                                .append(devName).append(" - ").append(profileUrl);
+
+        return ShareCompat.IntentBuilder.from(this)
+                .setType("text/plain")
+                .setText(message)
+                .getIntent();
+
+    }
+
+    private void shareUserProfile(final String profileUrl, final String devName) {
+        shareButton = findViewById(R.id.shareButton);
         shareButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username = devName;
-                Uri pictureUri = Uri.parse(imageUrl);
-                Intent shareIntent = new Intent();
-                shareIntent.setAction(Intent.ACTION_SEND);
-                shareIntent.putExtra(Intent.EXTRA_TEXT, username);
-                shareIntent.putExtra(Intent.EXTRA_STREAM, pictureUri);
-                shareIntent.setType("image/*");
-                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                startActivity(Intent.createChooser(shareIntent, "Share profile"));
+                startActivity(Intent.createChooser(profileShareIntent(profileUrl, devName), "Share profile"));
             }
         });
 
