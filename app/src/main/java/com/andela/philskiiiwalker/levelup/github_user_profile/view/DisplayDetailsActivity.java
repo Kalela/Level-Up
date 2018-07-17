@@ -1,5 +1,6 @@
 package com.andela.philskiiiwalker.levelup.github_user_profile.view;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;

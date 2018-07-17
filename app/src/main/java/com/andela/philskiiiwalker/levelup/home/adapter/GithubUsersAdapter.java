@@ -1,5 +1,6 @@
 package com.andela.philskiiiwalker.levelup.home.adapter;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -24,6 +25,7 @@ public class GithubUsersAdapter extends RecyclerView.Adapter<GithubUsersAdapter.
     private Context mcontext;
     private ArrayList<GithubUsers> users;
 
+
     public GithubUsersAdapter(Context mcontext, ArrayList<GithubUsers> users) {
         this.mcontext = mcontext;
         this.users = users;
@@ -46,16 +48,24 @@ public class GithubUsersAdapter extends RecyclerView.Adapter<GithubUsersAdapter.
     @Override
     public void onBindViewHolder(@NonNull final GithubUsersAdapter.ViewHolder viewHolder, final int i) {
         final GithubUsers githubUser = users.get(i);
+        final ProgressDialog progressDialog = new ProgressDialog(mcontext);
+
         viewHolder.mTextView.setText(githubUser.getUsername());
         Glide.with(mcontext)
                 .asBitmap()
                 .load(githubUser.getProfileImage())
                 .into(viewHolder.mImageView);
 
+
         viewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                progressDialog.setTitle("Loading...");
+                progressDialog.setMessage("Please wait...");
+                progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                progressDialog.show();
+                progressDialog.setCancelable(false);
                 Intent intent = new Intent(mcontext, DisplayDetailsActivity.class);
                 intent.putExtra("image_url", githubUser.getProfileImage());
                 intent.putExtra("dev_name", githubUser.getUsername());
@@ -63,6 +73,7 @@ public class GithubUsersAdapter extends RecyclerView.Adapter<GithubUsersAdapter.
                 mcontext.startActivity(intent);
             }
         });
+
 
     }
 

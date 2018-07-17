@@ -1,6 +1,8 @@
 package com.andela.philskiiiwalker.levelup.home.view;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,7 +12,6 @@ import com.andela.philskiiiwalker.levelup.home.adapter.GithubUsersAdapter;
 import com.andela.philskiiiwalker.levelup.home.contract.MainActivityContract;
 import com.andela.philskiiiwalker.levelup.home.model.GithubUsers;
 import com.andela.philskiiiwalker.levelup.home.presenter.GithubUsersPresenter;
-import com.xiaofeng.flowlayoutmanager.FlowLayoutManager;
 
 import java.util.ArrayList;
 
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
     MainActivityContract.MainPresenter presenter = new GithubUsersPresenter(this);
     RecyclerView mRecyclerView;
     RecyclerView.LayoutManager mLayoutManager;
+    SwipeRefreshLayout swipeRefreshLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,18 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
         } else {
             presenter.getGithubUsers();
         }
+        setSwipeRefreshListener();
+
+    }
+
+    private void setSwipeRefreshListener() {
+        swipeRefreshLayout = findViewById(R.id.refresh_layout);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                presenter.getGithubUsers();
+            }
+        });
     }
 
     @Override
