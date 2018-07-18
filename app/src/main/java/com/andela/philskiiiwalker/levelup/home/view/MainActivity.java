@@ -9,6 +9,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.andela.philskiiiwalker.levelup.R;
@@ -29,13 +30,16 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
     SwipeRefreshLayout swipeRefreshLayout;
 
     ProgressDialog progressDialog;
-    Context mcontext;
+    android.support.v7.widget.Toolbar toolbar;
+    CollapsingToolbarLayout collapsingToolbarLayout;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Nairobi Java Developers");
         mRecyclerView = findViewById(R.id.my_recycler_view);
 
         swipeRefreshLayout = findViewById(R.id.refresh_layout);
@@ -46,12 +50,20 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
         } else {
             presenter.getGithubUsers();
         }
+
         setSwipeRefreshListener();
 
     }
 
+    public void onBackPressed() {
+        if(progressDialog.isShowing())
+        {
+            progressDialog.dismiss();
+        }
+    }
+
     private void setSwipeRefreshListener() {
-        swipeRefreshLayout = findViewById(R.id.refresh_layout);
+
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -80,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
         mRecyclerView.setLayoutManager(mLayoutManager);
         RecyclerView.Adapter adapter = new GithubUsersAdapter(this, users);
         mRecyclerView.setAdapter(adapter);
+
         dismissDialog("success");
     }
 
@@ -100,31 +113,31 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
         }
     }
 
-    private void initCollapsingToolbar() {
-        final CollapsingToolbarLayout collapsingToolbar =
-                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbar.setTitle(" ");
-        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar_layout);
-        appBarLayout.setExpanded(true);
-
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            boolean isShow = false;
-            int scrollRange = -1;
-
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (scrollRange == -1) {
-                    scrollRange = appBarLayout.getTotalScrollRange();
-                }
-                if (scrollRange + verticalOffset == 0) {
-                    collapsingToolbar.setTitle(getString(R.string.app_name));
-                    isShow = true;
-                } else if (isShow) {
-                    collapsingToolbar.setTitle(" ");
-                    isShow = false;
-                }
-            }
-        });
-    }
+//    private void initCollapsingToolbar() {
+//        final CollapsingToolbarLayout collapsingToolbar =
+//                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+//        collapsingToolbar.setTitle(" ");
+//        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar_layout);
+//        appBarLayout.setExpanded(true);
+//
+//        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+//            boolean isShow = false;
+//            int scrollRange = -1;
+//
+//            @Override
+//            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+//                if (scrollRange == -1) {
+//                    scrollRange = appBarLayout.getTotalScrollRange();
+//                }
+//                if (scrollRange + verticalOffset == 0) {
+//                    collapsingToolbar.setTitle(getString(R.string.app_name));
+//                    isShow = true;
+//                } else if (isShow) {
+//                    collapsingToolbar.setTitle(" ");
+//                    isShow = false;
+//                }
+//            }
+//        });
+//    }
 
 }

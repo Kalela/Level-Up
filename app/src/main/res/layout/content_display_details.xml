@@ -7,10 +7,11 @@
 
     <ImageView
         android:id="@+id/developerImageImageView"
-        android:contentDescription="@string/app_image"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="6dp"
+        android:contentDescription="@string/app_image"
+        android:foregroundGravity="center"
         android:src="@drawable/profile"
         app:layout_constraintBottom_toTopOf="@+id/developerNameTextView"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,6 +24,7 @@
         android:layout_marginBottom="9dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
         android:ems="10"
         android:text="@string/username"
         android:textColor="#000"
@@ -48,13 +50,12 @@
         android:id="@+id/shareButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/share"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:drawableRight="@drawable/share_icon"
+        android:text="@string/share"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/developerBio"
-        tools:ignore="MissingConstraints"
-        />
+        tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>
