@@ -8,6 +8,8 @@ public interface MainActivityContract {
 
     interface MainView {
         void displayGithubUsers(ArrayList<GithubUsers> userList);
+
+        void dismissDialog(String fetchStatus);
     }
     interface MainPresenter {
         void getGithubUsers();

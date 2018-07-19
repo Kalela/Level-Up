@@ -16,7 +16,6 @@ import retrofit2.Response;
 
 public final class GithubUsersPresenter implements MainActivityContract.MainPresenter {
     MainActivityContract.MainView view;
-    private Context context;
 
     public GithubUsersPresenter(MainActivityContract.MainView view) {
         this.view = view;

@@ -3,17 +3,17 @@ package com.andela.philskiiiwalker.levelup.home.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.andela.philskiiiwalker.levelup.R;
-import com.andela.philskiiiwalker.levelup.home.model.GithubUsers;
 import com.andela.philskiiiwalker.levelup.github_user_profile.view.DisplayDetailsActivity;
+import com.andela.philskiiiwalker.levelup.home.model.GithubUsers;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
@@ -22,6 +22,7 @@ public class GithubUsersAdapter extends RecyclerView.Adapter<GithubUsersAdapter.
 
     private Context mcontext;
     private ArrayList<GithubUsers> users;
+
 
     public GithubUsersAdapter(Context mcontext, ArrayList<GithubUsers> users) {
         this.mcontext = mcontext;
@@ -45,11 +46,13 @@ public class GithubUsersAdapter extends RecyclerView.Adapter<GithubUsersAdapter.
     @Override
     public void onBindViewHolder(@NonNull final GithubUsersAdapter.ViewHolder viewHolder, final int i) {
         final GithubUsers githubUser = users.get(i);
+
         viewHolder.mTextView.setText(githubUser.getUsername());
         Glide.with(mcontext)
                 .asBitmap()
                 .load(githubUser.getProfileImage())
                 .into(viewHolder.mImageView);
+
 
         viewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +66,7 @@ public class GithubUsersAdapter extends RecyclerView.Adapter<GithubUsersAdapter.
             }
         });
 
+
     }
 
     @Override
@@ -74,7 +78,7 @@ public class GithubUsersAdapter extends RecyclerView.Adapter<GithubUsersAdapter.
         public View mView;
         public TextView mTextView;
         public ImageView mImageView;
-        public RelativeLayout parentLayout;
+        public CardView parentLayout;
 
         public ViewHolder(@NonNull View view) {
             super(view);
