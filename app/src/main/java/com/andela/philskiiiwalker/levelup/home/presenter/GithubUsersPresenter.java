@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import util.NetworkCheck;
 
 public final class GithubUsersPresenter implements MainActivityContract.MainPresenter {
     MainActivityContract.MainView view;
@@ -30,18 +31,21 @@ public final class GithubUsersPresenter implements MainActivityContract.MainPres
                 ArrayList<GithubUsers> users = response.body().getUsers();
                 if (users != null) {
                     view.displayGithubUsers(users);
+                } else {
+                    view.displaySnackBar(true);
                 }
 
             }
 
             @Override
             public void onFailure(Call<GithubUsersResponse> call, Throwable t) {
-                try {
-                    throw new InterruptedException("Something went wrong!");
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                view.displaySnackBar(false);
             }
         });
+    }
+
+    @Override
+    public boolean getNetworkConnectionState() {
+        return NetworkCheck.getConnectionStatus(view.getViewContext());
     }
 }

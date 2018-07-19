@@ -2,14 +2,18 @@ package com.andela.philskiiiwalker.levelup.home.view;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.andela.philskiiiwalker.levelup.R;
@@ -31,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
 
     ProgressDialog progressDialog;
     android.support.v7.widget.Toolbar toolbar;
-    CollapsingToolbarLayout collapsingToolbarLayout;
+    Snackbar snackbar;
 
 
     @Override
@@ -48,7 +52,11 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
             users = savedInstanceState.getParcelableArrayList(ALL_KEYS);
             displayGithubUsers(users);
         } else {
-            presenter.getGithubUsers();
+            if (presenter.getNetworkConnectionState()) {
+                presenter.getGithubUsers();
+            } else {
+                displaySnackBar(false);
+            }
         }
 
         setSwipeRefreshListener();
@@ -113,31 +121,41 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
         }
     }
 
-//    private void initCollapsingToolbar() {
-//        final CollapsingToolbarLayout collapsingToolbar =
-//                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-//        collapsingToolbar.setTitle(" ");
-//        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar_layout);
-//        appBarLayout.setExpanded(true);
-//
-//        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-//            boolean isShow = false;
-//            int scrollRange = -1;
-//
-//            @Override
-//            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-//                if (scrollRange == -1) {
-//                    scrollRange = appBarLayout.getTotalScrollRange();
-//                }
-//                if (scrollRange + verticalOffset == 0) {
-//                    collapsingToolbar.setTitle(getString(R.string.app_name));
-//                    isShow = true;
-//                } else if (isShow) {
-//                    collapsingToolbar.setTitle(" ");
-//                    isShow = false;
-//                }
-//            }
-//        });
-//    }
+    @Override
+    public void displaySnackBar(boolean networkStatus) {
+        int status = R.string.no_connection;
+
+        if (networkStatus) {
+            status = R.string.fetch_failed;
+        }
+        Snackbar snackbar = Snackbar
+                .make(swipeRefreshLayout, status, Snackbar.LENGTH_INDEFINITE)
+                .setAction("Try Again", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                                        hideSnackBar();
+                                        presenter.getGithubUsers();
+                                    }
+                });
+
+        snackbar.setActionTextColor(Color.CYAN);
+
+        View sbView = snackbar.getView();
+        TextView textView = sbView.findViewById(android.support.design.R.id.snackbar_text);
+        textView.setTextColor(Color.WHITE);
+
+        snackbar.show();
+    }
+
+    private void hideSnackBar() {
+        snackbar.dismiss();
+    }
+
+
+    @Override
+    public Context getViewContext() {
+        return getApplicationContext();
+    }
+
 
 }
