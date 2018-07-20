@@ -125,6 +125,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
     public void displaySnackBar(boolean networkStatus) {
         if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.dismiss();
+            swipeRefreshLayout.setRefreshing(false);
         }
         int status = R.string.no_connection;
 
@@ -136,7 +137,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
                 .setAction("Try Again", new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                                        hideSnackBar();
                                         presenter.getGithubUsers();
                                     }
                 });
@@ -148,10 +148,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
         textView.setTextColor(Color.WHITE);
 
         snackbar.show();
-    }
-
-    private void hideSnackBar() {
-        snackbar.dismiss();
     }
 
 
