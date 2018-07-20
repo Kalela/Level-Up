@@ -7,4 +7,6 @@
     <string name="app_image">app image</string>
     <string name="share">Share Profile</string>
     <string name="share_message">Check out this awesome developer @</string>
+    <string name="no_connection">No internet connection</string>
+    <string name="fetch_failed">Bad internet Connection</string>
 </resources>
