@@ -123,6 +123,9 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
 
     @Override
     public void displaySnackBar(boolean networkStatus) {
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.dismiss();
+        }
         int status = R.string.no_connection;
 
         if (networkStatus) {
