@@ -28,5 +28,5 @@ public class GithubUsersPresenterTest {
     public void getGithubUsers() {
         mPresenter.getGithubUsers();
     }
-    
+
 }
