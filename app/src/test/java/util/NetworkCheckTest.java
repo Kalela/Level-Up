@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import static org.junit.Assert.*;
+import static org.mockito.Mockito.verify;
 
 public class NetworkCheckTest {
 
@@ -32,7 +32,7 @@ public class NetworkCheckTest {
 
             Assert.assertTrue(NetworkCheck.getConnectionStatus(context));
 
-            Mockito.verify(networkInfo).isConnectedOrConnecting();
+            verify(networkInfo).isConnectedOrConnecting();
         }
 
         @Test

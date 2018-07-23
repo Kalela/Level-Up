@@ -37,6 +37,11 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        try{
+            Class.forName("android.os.AsyncTask");
+        }catch(Throwable ignore) {
+            // ignored
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         toolbar = findViewById(R.id.toolbar);
