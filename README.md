@@ -4,6 +4,7 @@ Level-Up is an android app that leverages on the github api to show nairobi devs
 
 [![CircleCI](https://circleci.com/gh/Kalela/Level-Up/tree/master.svg?style=svg)](https://circleci.com/gh/Kalela/Level-Up/tree/master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/1a1887db6037dfc6d00d/maintainability)](https://codeclimate.com/github/Kalela/Level-Up/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/1a1887db6037dfc6d00d/test_coverage)](https://codeclimate.com/github/Kalela/Level-Up/test_coverage)
 
 ## Features
 1. Displays a list of android developers on github.(Shows developer's profile image and github username)
